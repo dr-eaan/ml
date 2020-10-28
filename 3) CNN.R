@@ -1,4 +1,4 @@
-setwd('C:\\Users\\proto\\Desktop\\Iacus project')
+setwd('C:\\Users\\proto\\Desktop\\***** project')
 library(dplyr)
 library(keras)
 library(tensorflow)
@@ -13,7 +13,7 @@ tspicol = readRDS('tscolbal.rds')
 trpicol = readRDS('trcol4000.rds')
 tspicol = readRDS('tscol1000.rds')
 
-w = dim(trpicol[[1]])[1] * dim(trpicol[[1]])[2] * dim(trpicol[[1]])[3] #all have the same dimensions
+w = dim(trpicol[[1]])[1] * dim(trpicol[[1]])[2] * dim(trpicol[[1]])[3]
 x_train = matrix(0, nrow = length(trpicol), ncol = w)
 x_test = matrix(0, nrow = length(tspicol), ncol = w)
 
@@ -79,8 +79,7 @@ model = keras_model_sequential() %>%
                 layer_dense(units = dim(y_train)[2], activation = "softmax")
 model %>% compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = 'accuracy')
 t1 = Sys.time()
-history = model %>% fit(x_train, y_train, epochs = 50, batch_size = 50) #, validation_split = 0.2,  callbacks = c(es)
+history = model %>% fit(x_train, y_train, epochs = 50, batch_size = 50) 
 t2 = Sys.time()
-cnntime = t2 - t1 #5.791336 min for full with early stop, 29.75018 min for full, 6.139876 for 4000, 10.2203 for bal
+cnntime = t2 - t1 
 model %>% evaluate(x_test, y_test)
-#98.49% train, 82.46% test (4000), 99.59% train 73.93% test (bal), 98.82% train 85.94% test for 4000, 96.59% train 73.89% test (full with val), 99.25% train 93.48% test full
