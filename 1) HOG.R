@@ -1,7 +1,7 @@
-setwd('C:\\Users\\proto\\Desktop\\Iacus project')
+setwd('C:\\Users\\proto\\Desktop\\***** project')
 #dir = file.choose()
 #unzip(dir)
-#setwd('C:/Users/proto/Desktop/Iacus project')
+#setwd('C:/Users/proto/Desktop/***** project')
 Sys.setenv(LANG = "en")
 #install.packages('OpenImageR')
 #install.packages('parallelSVM')
@@ -72,7 +72,7 @@ for (i in 1:length(trpic)){
   t2 = Sys.time()
   hogtrtime[i] = t2 - t1
 }
-sum(hogtrtime) #7.979583 seconds for full, 0.8417313 for 4000, 1.857102 seconds for bal
+sum(hogtrtime)
 
 trhog = matrix(0, nrow = length(tmptrhog), ncol = length(tmptrhog[[1]]))
 tridhog = factor(train$ClassId, levels = 0:42)
@@ -89,11 +89,11 @@ for (r in 1:length(tmptrhog)){
 t1 = Sys.time() #RUN THESE 3 LINES TOGETHER
 trmod = svm(trhog, tridhog)
 t2 = Sys.time()
-svmtime = t2 - t1 #9.47211 min for full, 10.05625 seconds for 4000, 36.10453 seconds for bal
+svmtime = t2 - t1
 predSVM = predict(trmod)
-confusionMatrix(predSVM, tridhog) #83.24% with 4000 images, 94.54% all trainset, 94.10 % with 9030 balanced, 93.66% 9681 balanced v2 
+confusionMatrix(predSVM, tridhog)
 
-rm(errors, pic, tmptrhog, train, trhog) #trpic
+rm(errors, pic, tmptrhog, train, trhog) 
 gc()
 
 #Test
@@ -151,7 +151,7 @@ for (i in 1:length(tspic)){
   t2 = Sys.time()
   hogtstime[i] = t2 - t1
 }
-sum(hogtstime) #2.67364 seconds for full, 0.211339 for 4000, 0.538507 for bal
+sum(hogtstime) 
 
 tshog = matrix(0, nrow = length(tmptshog), ncol = length(tmptshog[[1]]))
 tsidhog = factor(test$ClassId, levels = 0:42)
@@ -166,7 +166,7 @@ for (r in 1:length(tmptshog)){
 }
 
 predSVM2 = predict(trmod, tshog)
-confusionMatrix(predSVM2, tsidhog) #62.75% with 4000 images, 78.48% with all trainset, 61.55% with 2580 balanced (v2 for train)
+confusionMatrix(predSVM2, tsidhog) 
 
 rm(errors, pic, tmptshog, test, tshog)
 gc()
