@@ -1,7 +1,0 @@
-|                                  | Training set cardinality | Test set cardinality | Parameters | Computational time | Training accuracy | Test accuracy |
-|----------------------------------|--------------------------|----------------------|------------|--------------------|-------------------|---------------|
-| HOG with best accuracy           | 39209                    | 12630                | 16 bins    | 00:09:38.98        | 94.54%            | 78.48%        |
-| HOG with best computational time | 4000                     | 1000                 | 16 bins    | 00:00:11.11        | 83.24%            | 62.75%        |
-| SIFT with best accuracy          | 4000                     | 1000                 | k = 18     | 10:18:11.53        | 48.85%            | 09.20%        |
-| CNN with best accuracy           | 39209                    | 12639                | 50 epochs  | 00:29:45.01        | 99.25%            | 93.48%        |
-| CNN with best computational time | 4000                     | 1000                 | 50 epochs  | 00:06:08.39        | 98.82%            | 85.94%        |
