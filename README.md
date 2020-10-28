@@ -6,4 +6,5 @@ The goal of this paper is to show the advancing in image recognition approaches,
 - Scale Invariant Feature Transformation (followed by K-means)  
 - Convolutional Neural Network  
   
+  [German Traffic Signs dataset from Kaggle](https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign)  
   SIFT code is from [huksu](https://github.com/huksu/RSIFT)
